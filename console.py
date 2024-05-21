@@ -9,7 +9,7 @@ class HBNBCommand(cmd.Cmd):
     '''An Hbnbcommand console'''
 
     def do_quit(self, line):
-        '''press quit or EOF to exit'''
+        '''Quit command to exit the program'''
         return True
 
     do_EOF = do_quit
