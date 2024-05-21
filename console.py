@@ -13,7 +13,7 @@ class HBNBCommand(cmd.Cmd):
     HBNBCommand
     '''
     prompt = "(hbnb) "
-    valid_classes = {"BaseModel", "User"}
+    valid_classes = {"BaseModel", "User", "Place", "State", "City", "Amenity", "Review"}
 
     def emptyline(self):
         '''do nothing'''
