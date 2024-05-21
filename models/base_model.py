@@ -4,6 +4,7 @@ A model
 """
 import uuid
 from datetime import datetime
+import models
 
 class BaseModel:
     '''
@@ -24,9 +25,11 @@ class BaseModel:
             self.created_at = datetime.utcnow()
             self.updated_at = datetime.utcnow()
 
+        models.storage.new(self)
 
     def save(self):
         self.updated_at = datetime.utcnow()
+        models.storage.save()
 
     def to_dict(self):
         my_dict = self.__dict__.copy()
@@ -37,5 +40,6 @@ class BaseModel:
         return my_dict
 
     def __str__(self):
-        return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
+        class_name = self.__class__.__name__
+        return ("[{}] ({}) {}".format(class_name, self.id, self.__dict__))
 
